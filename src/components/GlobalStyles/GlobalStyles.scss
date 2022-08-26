@@ -3,6 +3,14 @@
 
 :root {
     --primary: #fe2c55;
+    --secondary: rgb(22, 24, 35);
+    --secondary-003: rgba(22, 24, 35, 0.03);
+    --secondary-006: rgba(22, 24, 35, 0.06);
+    --secondary-012: rgba(22, 24, 35, 0.12);
+    --secondary-034: rgba(22, 24, 35, 0.34);
+    --secondary-05: rgba(22, 24, 35, 0.5);
+    --secondary-075: rgba(22, 24, 35, 0.75);
+    --checked-icon-color: rgb(32, 213, 236);
 
     // Default layout
     --default-layout-header-height: 60px;
@@ -24,4 +32,17 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color: var(--secondary);
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+}
+
+a[href] {
+    text-decoration: none;
+    color: var(--secondary);
 }

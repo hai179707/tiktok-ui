@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 9px 16px;
+
+    &:hover {
+        background-color: var(--secondary-003);
+    }
+}
+
+.icon {
+    font-size: 1.8rem;
+}
+
+.title {
+    margin-left: 8px;
+    font-weight: 500;
+}
