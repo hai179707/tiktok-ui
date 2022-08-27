@@ -26,95 +26,6 @@
     align-items: center;
 }
 
-.search {
-    position: relative;
-    width: 361px;
-    height: var(--height-search);
-    background: var(--secondary-006);
-    border-radius: var(--search-border-radius);
-    padding-left: 16px;
-    display: flex;
-    align-items: center;
-    border: 1px solid transparent;
-    overflow: hidden;
-
-    &:focus-within {
-        border-color: rgba(22, 24, 35, 0.2);
-    }
-
-    &::before {
-        content: '';
-        width: 1px;
-        height: 60%;
-        background-color: var(--secondary-012);
-        position: absolute;
-        right: var(--width-search-button);
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    input {
-        background-color: transparent;
-        caret-color: var(--primary);
-        font-size: 1.6rem;
-        flex: 1;
-        height: 100%;
-    }
-
-    input:not(:placeholder-shown) ~ button {
-        color: var(--secondary-075);
-    }
-
-    .clear,
-    .load {
-        position: absolute;
-        top: 50%;
-        right: calc(var(--width-search-button) + 14px);
-        transform: translateY(-50%);
-        color: var(--secondary-034);
-        display: none;
-        align-items: center;
-        justify-content: center;
-    }
-
-    input:not(:placeholder-shown) ~ .clear {
-        display: flex;
-    }
-
-    .search-btn {
-        height: var(--height-search);
-        width: var(--width-search-button);
-        border-bottom-right-radius: var(--search-border-radius);
-        border-top-right-radius: var(--search-border-radius);
-        cursor: pointer;
-        color: var(--secondary-034);
-        font-size: 1.8rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &:hover {
-            background-color: var(--secondary-003);
-        }
-
-        &:active {
-            background-color: var(--secondary-006);
-        }
-    }
-}
-
-.search-result {
-    width: 361px;
-
-    .search-title {
-        height: 30px;
-        padding: 5px 12px;
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: var(--secondary-005);
-    }
-}
-
 .actions {
     display: flex;
     align-items: center;
@@ -152,10 +63,26 @@
     .message,
     .inbox {
         margin: 0 8px;
+        position: relative;
     }
 
     .message {
         margin-left: 16px;
+    }
+
+    .unread-inbox {
+        position: absolute;
+        top: -4px;
+        right: -12px;
+        background-color: var(--primary);
+        width: 28px;
+        height: 18px;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 19px;
+        font-weight: 600;
+        color: #fff;
+        font-size: 1.4rem;
     }
 
     .user-avatar {
@@ -163,11 +90,5 @@
         border-radius: 999px;
         margin-left: 16px;
         cursor: pointer;
-    }
-}
-
-@media (max-width: 768px) {
-    .search {
-        display: none;
     }
 }

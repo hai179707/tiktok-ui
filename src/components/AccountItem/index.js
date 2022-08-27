@@ -2,20 +2,26 @@ import classNames from "classnames/bind";
 import styles from "./AccountItem.module.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import images from "~/assets/images";
+import Image from "../Image";
 
 const cx = classNames.bind(styles)
 
-function AccountItem() {
+function AccountItem({ data }) {
+    const goToUserPage = () => {
+        window.location.href = `/@${data.nickname}`;
+    }
     return (
-        <div className={cx('wrapper')}>
-            <img className={cx('avatar')} src={images.ribi} alt="avatar" />
+        <div className={cx('wrapper')} onClick={goToUserPage}>
+            <Image
+                className={cx('avatar')}
+                src={data.avatar}
+                alt={data.nickname} />
             <div className={cx('info')}>
                 <h1 className={cx('name')}>
-                    <span>Nguyen Van A</span>
-                    <FontAwesomeIcon className={cx('icon')} icon={faCheckCircle} />
+                    <span>{data.full_name}</span>
+                    {data.tick && <FontAwesomeIcon className={cx('icon')} icon={faCheckCircle} />}
                 </h1>
-                <span className={cx('username')}>nguyenvana</span>
+                <span className={cx('username')}>{data.nickname}</span>
             </div>
         </div>
     )
