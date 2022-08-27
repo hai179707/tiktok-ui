@@ -150,6 +150,22 @@
             height: 18px;
         }
     }
+
+    .message,
+    .inbox {
+        margin: 0 8px;
+    }
+
+    .message {
+        margin-left: 16px;
+    }
+
+    .user-avatar {
+        width: 32px;
+        border-radius: 999px;
+        margin-left: 16px;
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 768px) {

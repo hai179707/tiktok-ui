@@ -67,6 +67,19 @@
         background-color: var(--button-hover-background-color);
     }
 }
+
+.iconOnly {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    padding: 0;
+    color: var(--secondary);
+
+    .icon {
+        font-size: 2rem;
+    }
+}
 // size
 .small {
     min-width: 88px;

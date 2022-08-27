@@ -1,3 +1,9 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .menu-items {
     & > div {
         padding-bottom: 8px;
@@ -7,9 +13,19 @@
         justify-content: start;
         width: 100%;
         padding: 8px 16px;
+        border-radius: 0;
 
         &:hover {
             background-color: var(--secondary-003);
+        }
+
+        &.separate {
+            border-top-color: var(--secondary-012);
+        }
+
+        &.subitem {
+            font-weight: 400;
+            font-size: 1.4rem;
         }
     }
 }
@@ -34,9 +50,4 @@
     line-height: 50px;
     font-weight: 500;
     cursor: pointer;
-}
-
-.language {
-    font-weight: 400;
-    font-size: 1.4rem;
 }

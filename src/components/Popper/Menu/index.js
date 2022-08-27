@@ -17,7 +17,7 @@ function Menu({ children, items = [], onChange = defaultFnc }) {
     const renderItem = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.sub
-            return <MenuItem key={index} className={item.type} data={item} onClick={() => {
+            return <MenuItem key={index} data={item} onClick={() => {
                 if (isParent) {
                     setHistory(prev => [...prev, item.sub])
                 } else {
@@ -30,7 +30,6 @@ function Menu({ children, items = [], onChange = defaultFnc }) {
     return (
         <div className={cx('wrapper')}>
             <Tippy
-                visible
                 delay={[0, 800]}
                 placement='bottom-end'
                 interactive
@@ -44,6 +43,9 @@ function Menu({ children, items = [], onChange = defaultFnc }) {
                         </PopperWrapper>
                     </div>
                 )}
+                onHide={() => {
+                    setHistory(prev => prev.slice(0, 1))
+                }}
             >
                 {children}
             </Tippy>
