@@ -3,18 +3,32 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { faCircleQuestion, faKeyboard } from '@fortawesome/free-regular-svg-icons';
-import { faAdn } from '@fortawesome/free-brands-svg-icons';
+import { faCircleQuestion, faCircleXmark, faGlobe, faKeyboard, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { Menu as More } from '~/components/Popper'
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
-import OptionItem from '~/components/OptionItem';
 import Button from '~/components/Button';
 
 const cx = classNames.bind(styles)
+
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faGlobe} />,
+        title: 'English',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts',
+    }
+]
 
 function Header() {
     const [searchResult, setSearchResult] = useState([])
@@ -75,23 +89,13 @@ function Header() {
             <div className={cx('actions')}>
                 <Button outline to='/upload' className={cx('upload')} leftIcon={<img src={images.upload} alt='Upload' />}>Upload</Button>
                 <Button primary>Log in</Button>
-                <Tippy
-                    delay={[0, 500]}
-                    interactive
-                    render={attrs => (
-                        <div className={cx('more-option')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <OptionItem icon={<img src={images.upload} alt='Upload' />} title="Language" />
-                                <OptionItem icon={<FontAwesomeIcon icon={faCircleQuestion} />} title="Feedback and help" />
-                                <OptionItem icon={<FontAwesomeIcon icon={faKeyboard} />} title="Keyboard shortcuts" />
-                            </PopperWrapper>
-                        </div>
-                    )}
+                <More
+                    items={MENU_ITEMS}
                 >
                     <div className={cx('more')}>
                         <img src={images.more} alt='More' />
                     </div>
-                </Tippy>
+                </More>
             </div>
         </div>
     </header>

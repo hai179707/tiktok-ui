@@ -10,6 +10,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--secondary);
+    background-color: transparent;
 
     & + .wrapper {
         margin-left: 16px;
@@ -23,6 +25,7 @@
     .icon {
         display: flex;
         align-items: center;
+        width: 16px;
 
         img {
             width: 14px;

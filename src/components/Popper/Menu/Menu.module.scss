@@ -1,0 +1,15 @@
+.menu-items {
+    & > div {
+        padding-bottom: 8px;
+    }
+    .menu-item {
+        margin-left: 0 !important;
+        justify-content: start;
+        width: 100%;
+        padding: 8px 16px;
+
+        &:hover {
+            background-color: var(--secondary-003);
+        }
+    }
+}
