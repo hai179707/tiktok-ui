@@ -5,8 +5,7 @@ import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { faMessage, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { Menu as More } from '~/components/Popper'
@@ -16,6 +15,8 @@ import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import { MENU_ITEMS } from './MenuItem';
 import { USER_ITEMS } from './UserItem';
+import { ClearIcon, InboxIcon, MessagesIcon, MoreIcon, SearchIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles)
 
@@ -70,29 +71,28 @@ function Header() {
                         onClick={handleClear}
                         className={cx('clear')}
                     >
-                        <FontAwesomeIcon icon={faCircleXmark}
-                        />
+                        <ClearIcon width='16px' />
                     </span>
                     <span className={cx('load')}>
                         <FontAwesomeIcon icon={faSpinner} />
                     </span>
                     <button className={cx('search-btn')} onMouseDown={e => e.preventDefault()}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        <SearchIcon width='24px' />
                     </button>
                 </div>
             </HeadlessTippy>
             <div className={cx('actions')}>
-                <Button outline to='/upload' className={cx('upload')} leftIcon={<img src={images.upload} alt='Upload' />}>Upload</Button>
+                <Button outline to='/upload' className={cx('upload')} leftIcon={<UploadIcon />}>Upload</Button>
                 {currentUser ? (
                     <>
                         <Tippy content='Messages' placement='bottom' interactive>
                             <div className={cx('message')}>
-                                <Button iconOnly to='/messages' leftIcon={<FontAwesomeIcon icon={faPaperPlane} />}></Button>
+                                <Button iconOnly to='/messages' leftIcon={<MessagesIcon width='26px' />}></Button>
                             </div>
                         </Tippy>
                         <Tippy content='Inbox' placement='bottom' interactive>
                             <div className={cx('inbox')}>
-                                <Button iconOnly leftIcon={<FontAwesomeIcon icon={faMessage} />}></Button>
+                                <Button iconOnly leftIcon={<InboxIcon />}></Button>
                             </div>
                         </Tippy>
 
@@ -101,7 +101,7 @@ function Header() {
                             items={USER_ITEMS}
                             onChange={handleMenuChange}
                         >
-                            <img className={cx('user-avatar')} src={images.ribi} alt='User avatar' />
+                            <Image className={cx('user-avatar')} src={images.ribi} alt='User avatar' />
                         </More>
                     </>
                 ) : (
@@ -111,7 +111,7 @@ function Header() {
                             items={MENU_ITEMS}
                             onChange={handleMenuChange}
                         >
-                            <img className={cx('more')} src={images.more} alt='More' />
+                            <div><MoreIcon className={cx('more-icon')} /></div>
                         </More>
                     </>
                 )}

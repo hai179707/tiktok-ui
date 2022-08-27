@@ -1,58 +1,29 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightFromBracket, faCircleQuestion, faCoins, faGlobe, faKeyboard, faSliders, faUser } from '@fortawesome/free-solid-svg-icons';
+import { GetCoinIcon, LogOutIcon, ProfileIcon, SettingIcon } from '~/components/Icons';
+import { MENU_ITEMS } from './MenuItem';
 const currentUser = {
     userName: 'thanhhai179707'
 }
 
 export const USER_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faUser} />,
+        icon: <ProfileIcon />,
         title: 'View profile',
         to: `/@${currentUser.userName}`,
     },
     {
-        icon: <FontAwesomeIcon icon={faCoins} />,
+        icon: <GetCoinIcon />,
         title: 'Get coin',
-        to: `/coin`,
+        to: '/coin',
     },
     {
-        icon: <FontAwesomeIcon icon={faSliders} />,
+        icon: <SettingIcon />,
         title: 'View profile',
-        to: `/setting`,
+        to: '/setting',
     },
-    {
-        icon: <FontAwesomeIcon icon={faGlobe} />,
-        title: 'English',
-        sub: {
-            title: 'Language',
-            data: [
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'English',
-                    subitem: true
-                },
-                {
-                    type: 'language',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                    subitem: true
-                },
-            ]
-        }
-    },
-    {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-        title: 'Feedback and help',
-        to: '/feedback',
-    },
-    {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
-        title: 'Keyboard shortcuts',
-    },
+    ...MENU_ITEMS,
     {
         type: 'log-out',
-        icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+        icon: <LogOutIcon />,
         title: 'Log out',
         separate: true
     }

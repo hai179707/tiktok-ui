@@ -1,10 +1,8 @@
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faGlobe, faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { HelpIcon, KeyboardShortcutsIcon, LanguageIcon } from '~/components/Icons';
 
 export const MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faGlobe} />,
+        icon: <LanguageIcon />,
         title: 'English',
         sub: {
             title: 'Language',
@@ -12,23 +10,25 @@ export const MENU_ITEMS = [
                 {
                     type: 'language',
                     code: 'en',
-                    title: 'English'
+                    title: 'English',
+                    subitem: true
                 },
                 {
                     type: 'language',
                     code: 'vi',
-                    title: 'Tiếng Việt'
+                    title: 'Tiếng Việt',
+                    subitem: true
                 },
             ]
         }
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <HelpIcon />,
         title: 'Feedback and help',
         to: '/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <KeyboardShortcutsIcon />,
         title: 'Keyboard shortcuts',
     }
 ]
