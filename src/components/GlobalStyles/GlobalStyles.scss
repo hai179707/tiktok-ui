@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
 
 :root {
+    --white: #fff;
     --primary: #fe2c55;
     --secondary: rgb(22, 24, 35);
     --secondary-003: rgba(22, 24, 35, 0.03);
@@ -11,6 +12,7 @@
     --secondary-05: rgba(22, 24, 35, 0.5);
     --secondary-075: rgba(22, 24, 35, 0.75);
     --checked-icon-color: rgb(32, 213, 236);
+    --button-hover-background-color: rgba(254, 44, 85, 0.06);
 
     // Default layout
     --default-layout-header-height: 60px;
@@ -40,9 +42,10 @@ button {
     border: none;
     outline: none;
     font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
 }
 
 a[href] {
     text-decoration: none;
-    color: var(--secondary);
 }

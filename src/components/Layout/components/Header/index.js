@@ -12,6 +12,7 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import OptionItem from '~/components/OptionItem';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles)
 
@@ -52,7 +53,6 @@ function Header() {
                 )}
             >
                 <div className={cx('search')}>
-
                     <input
                         ref={inputRef}
                         placeholder='Tìm kiếm tài khoản và video'
@@ -73,20 +73,17 @@ function Header() {
                 </div>
             </Tippy>
             <div className={cx('actions')}>
-                <Link to='/upload' className={cx('upload')}>
-                    <img src={images.upload} alt='Upload' />
-                    Upload
-                </Link>
-                <button className={cx('login')}>Log in</button>
+                <Button outline to='/upload' className={cx('upload')} leftIcon={<img src={images.upload} alt='Upload' />}>Upload</Button>
+                <Button primary>Log in</Button>
                 <Tippy
                     delay={[0, 500]}
                     interactive
                     render={attrs => (
                         <div className={cx('more-option')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
-                                <OptionItem icon={faAdn} title="Language" />
-                                <OptionItem icon={faCircleQuestion} title="Feedback and help" />
-                                <OptionItem icon={faKeyboard} title="Keyboard shortcuts" />
+                                <OptionItem icon={<img src={images.upload} alt='Upload' />} title="Language" />
+                                <OptionItem icon={<FontAwesomeIcon icon={faCircleQuestion} />} title="Feedback and help" />
+                                <OptionItem icon={<FontAwesomeIcon icon={faKeyboard} />} title="Keyboard shortcuts" />
                             </PopperWrapper>
                         </div>
                     )}
