@@ -13,3 +13,25 @@
         }
     }
 }
+// Header
+.header {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+    min-width: 170px;
+}
+
+.back-btn {
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header-title {
+    text-align: center;
+    line-height: 50px;
+    font-weight: 500;
+    cursor: pointer;
+}

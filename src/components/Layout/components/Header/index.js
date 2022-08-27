@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faCircleXmark, faGlobe, faKeyboard, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { Menu as More } from '~/components/Popper'
@@ -11,24 +11,9 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import { MENU_ITEMS } from './MenuItem';
 
 const cx = classNames.bind(styles)
-
-const MENU_ITEMS = [
-    {
-        icon: <FontAwesomeIcon icon={faGlobe} />,
-        title: 'English',
-    },
-    {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-        title: 'Feedback and help',
-        to: '/feedback',
-    },
-    {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
-        title: 'Keyboard shortcuts',
-    }
-]
 
 function Header() {
     const [searchResult, setSearchResult] = useState([])
@@ -44,6 +29,10 @@ function Header() {
     const handleClear = () => {
         inputRef.current.value = ''
         inputRef.current.focus()
+    }
+
+    const handleMenuChange = (menuItem) => {
+        console.log(menuItem)
     }
 
     return <header className={cx('wrapper')}>
@@ -91,6 +80,7 @@ function Header() {
                 <Button primary>Log in</Button>
                 <More
                     items={MENU_ITEMS}
+                    onChange={handleMenuChange}
                 >
                     <div className={cx('more')}>
                         <img src={images.more} alt='More' />
