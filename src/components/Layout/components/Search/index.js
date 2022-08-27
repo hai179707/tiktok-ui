@@ -49,6 +49,10 @@ function Search() {
         setShowResult(false)
     }
 
+    const handleSearhBtn = () => {
+        window.location.href = `/search?q=${searchValue}`;
+    }
+
     return (
         <HeadlessTippy
             interactive
@@ -82,7 +86,11 @@ function Search() {
                     </span>
                 )}
                 {loading && <span className={cx('load')}><FontAwesomeIcon icon={faCircleNotch} /></span>}
-                <button className={cx('search-btn')} onMouseDown={e => e.preventDefault()}>
+                <button
+                    className={cx('search-btn')}
+                    onMouseDown={e => e.preventDefault()}
+                    onClick={handleSearhBtn}
+                >
                     <SearchIcon width='24px' />
                 </button>
             </div>

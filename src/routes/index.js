@@ -13,7 +13,7 @@ const publicRoutes = [
     { path: '/@:nickname', component: Profile },
     { path: '/upload', component: Upload, layout: HeaderOnly },
     { path: '/feedback', component: Feedback, layout: HeaderOnly },
-    { path: '/search', component: Search, layout: null },
+    { path: '/search', component: Search },
 ]
 
 const privateRoutes = [
