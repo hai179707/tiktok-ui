@@ -8,10 +8,7 @@ import MenuItem from "./MenuItem";
 import Header from "./Header";
 
 const cx = classNames.bind(styles)
-
-const defaultFnc = () => {
-
-}
+const defaultFnc = () => { }
 
 function Menu({ children, items = [], onChange = defaultFnc }) {
     const [history, setHistory] = useState([{ data: items }])
@@ -20,7 +17,7 @@ function Menu({ children, items = [], onChange = defaultFnc }) {
     const renderItem = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.sub
-            return <MenuItem key={index} data={item} onClick={() => {
+            return <MenuItem key={index} className={item.type} data={item} onClick={() => {
                 if (isParent) {
                     setHistory(prev => [...prev, item.sub])
                 } else {
