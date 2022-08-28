@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
@@ -18,15 +18,25 @@ import config from '~/config';
 const cx = classNames.bind(styles)
 
 function Header() {
-    const [currentUser, setCurrentUser] = useState(false)
+    const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('currentUser')) || false)
+
+    useEffect(() => {
+        localStorage.setItem('currentUser', currentUser)
+    }, [currentUser])
+
+    const handleLogIn = () => {
+        setCurrentUser(true)
+    }
 
     const handleMenuChange = (menuItem) => {
         if (menuItem.type === 'log-out') {
-            setCurrentUser(false)
+            var login = localStorage.getItem('currentUser')
+            if (login) {
+                setCurrentUser(false)
+            }
         }
         console.log(menuItem)
     }
-
 
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
@@ -64,7 +74,7 @@ function Header() {
                     </>
                 ) : (
                     <>
-                        <Button primary onClick={() => setCurrentUser(true)}>Log in</Button>
+                        <Button primary onClick={handleLogIn}>Log in</Button>
                         <div>
                             <More
                                 items={MENU_ITEMS}
