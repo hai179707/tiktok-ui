@@ -12,7 +12,7 @@ import { USER_ITEMS } from './UserItem';
 import { InboxIcon, MessagesIcon, MoreIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 
 const cx = classNames.bind(styles)
 
@@ -26,18 +26,18 @@ function Header() {
 
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
-            <Link to={routesConfig.home} className={cx('logo')}>
+            <Link to={config.routes.home} className={cx('logo')}>
                 <img src={images.logo} alt='Tiktok' />
             </Link>
             <Search />
             <div className={cx('actions')}>
-                <Button outline to={routesConfig.upload} className={cx('upload')} leftIcon={<UploadIcon />}>Upload</Button>
+                <Button outline to={config.routes.upload} className={cx('upload')} leftIcon={<UploadIcon />}>Upload</Button>
                 {currentUser ? (
                     <>
                         <div>
                             <Tippy content='Messages' placement='bottom' interactive>
                                 <div className={cx('message')}>
-                                    <Button iconOnly to={routesConfig.messages} leftIcon={<MessagesIcon width='26px' />}></Button>
+                                    <Button iconOnly to={config.routes.messages} leftIcon={<MessagesIcon width='26px' />}></Button>
                                 </div>
                             </Tippy>
                         </div>

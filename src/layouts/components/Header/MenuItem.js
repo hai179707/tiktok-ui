@@ -1,5 +1,5 @@
 import { HelpIcon, KeyboardShortcutsIcon, LanguageIcon } from '~/components/Icons';
-import routesConfig from '~/config/routes'
+import config from '~/config'
 
 
 export const MENU_ITEMS = [
@@ -27,7 +27,7 @@ export const MENU_ITEMS = [
     {
         icon: <HelpIcon />,
         title: 'Feedback and help',
-        to: routesConfig.feedback,
+        to: config.routes.feedback,
     },
     {
         icon: <KeyboardShortcutsIcon />,
