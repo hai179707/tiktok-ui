@@ -1,5 +1,4 @@
 import config from '~/config'
-
 import { HeaderOnly } from '~/layouts'
 
 import Home from '~/pages/Home'
@@ -18,8 +17,6 @@ const publicRoutes = [
     { path: config.routes.search, component: Search },
 ]
 
-const privateRoutes = [
-
-]
+const privateRoutes = []
 
 export { publicRoutes, privateRoutes }

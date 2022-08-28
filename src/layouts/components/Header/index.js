@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
@@ -17,12 +18,15 @@ import config from '~/config';
 const cx = classNames.bind(styles)
 
 function Header() {
+    const [currentUser, setCurrentUser] = useState(false)
 
     const handleMenuChange = (menuItem) => {
+        if (menuItem.type === 'log-out') {
+            setCurrentUser(false)
+        }
         console.log(menuItem)
     }
 
-    const currentUser = true
 
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
@@ -60,7 +64,7 @@ function Header() {
                     </>
                 ) : (
                     <>
-                        <Button primary>Log in</Button>
+                        <Button primary onClick={() => setCurrentUser(true)}>Log in</Button>
                         <div>
                             <More
                                 items={MENU_ITEMS}
