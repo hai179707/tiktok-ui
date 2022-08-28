@@ -13,6 +13,9 @@
     --checked-icon-color: rgb(32, 213, 236);
     --button-hover-background-color: rgba(254, 44, 85, 0.06);
 
+    // font
+    --font-family: 'ProximaNova', sans-serif;
+
     // Default layout
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
@@ -29,19 +32,37 @@ html {
 }
 
 body {
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--secondary);
+    overflow-y: overlay;
+}
+
+// scrollbar css
+html ::-webkit-scrollbar {
+    border-radius: 0px;
+    width: 8px;
+}
+
+html ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+html ::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 input,
-button {
+button,
+[tabindex] {
     border: none;
     outline: none;
     font-size: 1.6rem;
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-family);
     line-height: 1.5;
 }
 

@@ -12,6 +12,7 @@ import { USER_ITEMS } from './UserItem';
 import { InboxIcon, MessagesIcon, MoreIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(styles)
 
@@ -25,41 +26,49 @@ function Header() {
 
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
-            <Link to='/' className={cx('logo')}>
+            <Link to={routesConfig.home} className={cx('logo')}>
                 <img src={images.logo} alt='Tiktok' />
             </Link>
             <Search />
             <div className={cx('actions')}>
-                <Button outline to='/upload' className={cx('upload')} leftIcon={<UploadIcon />}>Upload</Button>
+                <Button outline to={routesConfig.upload} className={cx('upload')} leftIcon={<UploadIcon />}>Upload</Button>
                 {currentUser ? (
                     <>
-                        <Tippy content='Messages' placement='bottom' interactive>
-                            <div className={cx('message')}>
-                                <Button iconOnly to='/messages' leftIcon={<MessagesIcon width='26px' />}></Button>
-                            </div>
-                        </Tippy>
-                        <Tippy content='Inbox' placement='bottom' interactive>
-                            <div className={cx('inbox')}>
-                                <Button iconOnly leftIcon={<InboxIcon />}></Button>
-                                <div className={cx('unread-inbox')}>12</div>
-                            </div>
-                        </Tippy>
-                        <More
-                            items={USER_ITEMS}
-                            onChange={handleMenuChange}
-                        >
-                            <Image className={cx('user-avatar')} src={images.ribi} alt='User avatar' />
-                        </More>
+                        <div>
+                            <Tippy content='Messages' placement='bottom' interactive>
+                                <div className={cx('message')}>
+                                    <Button iconOnly to={routesConfig.messages} leftIcon={<MessagesIcon width='26px' />}></Button>
+                                </div>
+                            </Tippy>
+                        </div>
+                        <div>
+                            <Tippy content='Inbox' placement='bottom' interactive>
+                                <div className={cx('inbox')}>
+                                    <Button iconOnly leftIcon={<InboxIcon />}></Button>
+                                    <div className={cx('unread-inbox')}>12</div>
+                                </div>
+                            </Tippy>
+                        </div>
+                        <div>
+                            <More
+                                items={USER_ITEMS}
+                                onChange={handleMenuChange}
+                            >
+                                <Image className={cx('user-avatar')} src={images.ribi} alt='User avatar' />
+                            </More>
+                        </div>
                     </>
                 ) : (
                     <>
                         <Button primary>Log in</Button>
-                        <More
-                            items={MENU_ITEMS}
-                            onChange={handleMenuChange}
-                        >
-                            <div><MoreIcon className={cx('more-icon')} /></div>
-                        </More>
+                        <div>
+                            <More
+                                items={MENU_ITEMS}
+                                onChange={handleMenuChange}
+                            >
+                                <div><MoreIcon className={cx('more-icon')} /></div>
+                            </More>
+                        </div>
                     </>
                 )}
             </div>

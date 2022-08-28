@@ -8,6 +8,9 @@
     & > div {
         padding-bottom: 8px;
     }
+    .menu-body {
+        overflow-y: auto;
+    }
     .menu-item {
         margin-left: 0 !important;
         justify-content: start;

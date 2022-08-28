@@ -1,4 +1,6 @@
 import { HelpIcon, KeyboardShortcutsIcon, LanguageIcon } from '~/components/Icons';
+import routesConfig from '~/config/routes'
+
 
 export const MENU_ITEMS = [
     {
@@ -18,14 +20,14 @@ export const MENU_ITEMS = [
                     code: 'vi',
                     title: 'Tiếng Việt',
                     subitem: true
-                },
+                }
             ]
         }
     },
     {
         icon: <HelpIcon />,
         title: 'Feedback and help',
-        to: '/feedback',
+        to: routesConfig.feedback,
     },
     {
         icon: <KeyboardShortcutsIcon />,

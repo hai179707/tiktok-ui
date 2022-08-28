@@ -1,5 +1,7 @@
 import { GetCoinIcon, LogOutIcon, ProfileIcon, SettingIcon } from '~/components/Icons';
 import { MENU_ITEMS } from './MenuItem';
+import routesConfig from '~/config/routes'
+
 const currentUser = {
     userName: 'thanhhai179707'
 }
@@ -13,12 +15,12 @@ export const USER_ITEMS = [
     {
         icon: <GetCoinIcon />,
         title: 'Get coin',
-        to: '/coin',
+        to: routesConfig.coin,
     },
     {
         icon: <SettingIcon />,
-        title: 'View profile',
-        to: '/setting',
+        title: 'Setting',
+        to: routesConfig.setting,
     },
     ...MENU_ITEMS,
     {

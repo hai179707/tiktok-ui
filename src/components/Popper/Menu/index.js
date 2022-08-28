@@ -10,7 +10,7 @@ import Header from "./Header";
 const cx = classNames.bind(styles)
 const defaultFnc = () => { }
 
-function Menu({ children, items = [], onChange = defaultFnc }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFnc }) {
     const [history, setHistory] = useState([{ data: items }])
     const current = history[history.length - 1]
 
@@ -31,6 +31,7 @@ function Menu({ children, items = [], onChange = defaultFnc }) {
         <div className={cx('wrapper')}>
             <Tippy
                 delay={[0, 800]}
+                hideOnClick={hideOnClick}
                 placement='bottom-end'
                 interactive
                 render={attrs => (
@@ -39,7 +40,7 @@ function Menu({ children, items = [], onChange = defaultFnc }) {
                             {history.length > 1 && <Header title='Language' onBack={() => {
                                 setHistory(prev => prev.slice(0, prev.length - 1))
                             }} />}
-                            {renderItem()}
+                            <div className={cx('menu-body')}>{renderItem()}</div>
                         </PopperWrapper>
                     </div>
                 )}

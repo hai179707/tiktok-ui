@@ -2,6 +2,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: var(--default-layout-header-height);
+    height: 2000px;
 }
 
 .container {
