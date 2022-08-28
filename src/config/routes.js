@@ -8,6 +8,7 @@ const routes = {
     messages: '/messages',
     coin: '/coin',
     setting: '/setting',
+    live: '/live',
 }
 
 export default routes

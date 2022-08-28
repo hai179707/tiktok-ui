@@ -1,0 +1,36 @@
+.wrapper {
+    width: 356px;
+}
+
+.container {
+    position: fixed;
+    top: var(--default-layout-header-height);
+    bottom: 0px;
+    width: 356px;
+    padding: 20px 6px 26px 8px;
+    background: rgb(255, 255, 255);
+    z-index: 99;
+    overflow: hidden overlay;
+
+    &::-webkit-scrollbar {
+        border-radius: 0px;
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 0px;
+        background-color: transparent;
+    }
+
+    &:hover {
+        &::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            background-color: var(--secondary-006);
+        }
+    }
+}

@@ -15,6 +15,7 @@
 
     // font
     --font-family: 'ProximaNova', sans-serif;
+    --font-nickname: 'SofiaPro', sans-serif;
 
     // Default layout
     --default-layout-header-height: 60px;
@@ -66,8 +67,14 @@ button,
     line-height: 1.5;
 }
 
-a[href] {
+a {
     text-decoration: none;
+    color: var(--secondary);
+}
+
+p {
+    font-size: 1.4rem;
+    line-height: 2rem;
 }
 
 // Font
