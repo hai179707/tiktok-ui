@@ -5,16 +5,18 @@ import styles from './SidebarItem.module.scss';
 const cx = classNames.bind(styles)
 
 
-function SidebarItem({ children }) {
+function SidebarItem({ label, hide, children }) {
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', { hide })}>
+            <p className={cx('label')}>{label}</p>
             {children}
         </div>
     );
 }
 
 SidebarItem.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    label: PropTypes.string
 }
 
 export default SidebarItem;

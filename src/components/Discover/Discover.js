@@ -35,7 +35,6 @@ function Discover() {
 
     return (
         <>
-            <p className={cx('label')}>Discover</p>
             <div className={cx('body')}>
                 {discovers.map((discover, index) => (
                     <DiscoverItem key={index} data={discover} />

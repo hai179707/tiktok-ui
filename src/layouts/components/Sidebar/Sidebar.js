@@ -20,16 +20,16 @@ function Sidebar() {
                     <MenuItem title='Following' to={config.routes.following} icon={<UserGroupIcon />} activeIcon={<UserGroupSolidIcon />} />
                     <MenuItem title='LIVE' to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveSolidIcon />} />
                 </Menu>
-                <SidebarItem>
-                    <SuggestedAccounts label='Suggested accounts' />
+                <SidebarItem label='Suggested accounts'>
+                    <SuggestedAccounts />
                 </SidebarItem>
-                <SidebarItem>
-                    <SuggestedAccounts label='Following accounts' />
+                <SidebarItem hide label='Following accounts'>
+                    <SuggestedAccounts />
                 </SidebarItem>
-                <SidebarItem>
+                <SidebarItem hide label="Discover">
                     <Discover />
                 </SidebarItem>
-                <SidebarItem>
+                <SidebarItem hide>
                     <Footer />
                 </SidebarItem>
             </div>

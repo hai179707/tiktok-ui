@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types'
 import classNames from "classnames/bind";
 
 import * as userService from '~/services/userService';
@@ -35,17 +34,12 @@ function SuggestedAccounts({ label }) {
 
     return (
         <>
-            <p className={cx('label')}>{label}</p>
             {suggestedUsers.map(user => (
                 <AccountItem key={user.id} data={user} />
             ))}
             {seeLess ? <p className={cx('see-all')} onClick={loadlessSuggestedUsers}>See less</p> : <p className={cx('see-all')} onClick={loadMoreSuggestedUsers}>See all</p>}
         </>
     );
-}
-
-SuggestedAccounts.propTypes = {
-    label: PropTypes.string.isRequired
 }
 
 export default SuggestedAccounts;

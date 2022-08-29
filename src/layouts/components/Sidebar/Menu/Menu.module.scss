@@ -40,3 +40,12 @@
 .active-icon {
     display: none;
 }
+
+@media (max-width: 1071px) {
+    .menu-item {
+        justify-content: center;
+    }
+    .title {
+        display: none;
+    }
+}

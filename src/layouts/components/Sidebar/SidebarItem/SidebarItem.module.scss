@@ -12,4 +12,19 @@
         background: var(--secondary-012);
         transform: scaleY(0.5);
     }
+
+    .label {
+        padding: 0px 8px;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 1071px) {
+    .wrapper.hide {
+        display: none;
+    }
+
+    .label {
+        display: none;
+    }
 }
