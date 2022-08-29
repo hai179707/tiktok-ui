@@ -34,13 +34,13 @@ function SuggestedAccounts({ label }) {
     }
 
     return (
-        <div className={cx('wrapper')}>
+        <>
             <p className={cx('label')}>{label}</p>
             {suggestedUsers.map(user => (
                 <AccountItem key={user.id} data={user} />
             ))}
             {seeLess ? <p className={cx('see-all')} onClick={loadlessSuggestedUsers}>See less</p> : <p className={cx('see-all')} onClick={loadMoreSuggestedUsers}>See all</p>}
-        </div>
+        </>
     );
 }
 
