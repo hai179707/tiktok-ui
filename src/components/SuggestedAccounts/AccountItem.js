@@ -8,10 +8,20 @@ import Image from '../Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import AccountReview from './AccountReview';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles)
 
 function AccountItem({ data }) {
+    const [placement, setPlacement] = useState('bottom-start')
+    const [offset, setOffset] = useState([0, 0])
+
+    useEffect(() => {
+        if (window.innerWidth < 1072) {
+            setPlacement('right')
+            setOffset([60, 9])
+        }
+    }, [])
 
     const renderPreview = attrs => (
         <div tabIndex="-1" {...attrs}>
@@ -25,10 +35,11 @@ function AccountItem({ data }) {
         <div>
             <Tippy
                 delay={[800, 500]}
-                offset={[0, 0]}
+                offset={offset}
                 interactive
                 render={renderPreview}
-                placement='bottom-start'
+                placement={placement}
+                appendTo={document.body}
             >
                 <div className={cx('account-item')}>
                     <Image src={data.avatar} alt={data.nickname} className={cx('avatar')} />
