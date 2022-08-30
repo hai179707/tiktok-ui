@@ -68,7 +68,7 @@ function Header() {
                                 items={USER_ITEMS}
                                 onChange={handleMenuChange}
                             >
-                                <Image className={cx('user-avatar')} src={images.ribi} alt='User avatar' />
+                                <Image className={cx('user-avatar', 'show-arrow')} src={images.ribi} alt='User avatar' />
                             </More>
                         </div>
                     </>
@@ -80,7 +80,7 @@ function Header() {
                                 items={MENU_ITEMS}
                                 onChange={handleMenuChange}
                             >
-                                <div><MoreIcon className={cx('more-icon')} /></div>
+                                <div><MoreIcon className={cx('more-icon', 'show-arrow')} /></div>
                             </More>
                         </div>
                     </>

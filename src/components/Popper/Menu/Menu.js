@@ -48,6 +48,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFnc
     return (
         <div className={cx('wrapper')}>
             <Tippy
+                offset={[12, 11]}
                 delay={[0, 800]}
                 hideOnClick={hideOnClick}
                 placement='bottom-end'

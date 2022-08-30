@@ -9,6 +9,7 @@ import SidebarItem from './SidebarItem';
 import Discover from '~/components/Discover';
 import Footer from '~/components/Footer';
 
+
 const cx = classNames.bind(styles)
 
 function Sidebar() {
