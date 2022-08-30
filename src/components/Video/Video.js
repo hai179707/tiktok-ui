@@ -62,10 +62,10 @@ function Video({ data }) {
             </div>
             <div className={cx('control')}>
                 <div className={cx('volume')}>
-                    <div className={cx('volume-bar-back')}>
+                    {volume && <div className={cx('volume-bar-back')}>
                         <div className={cx('volume-bar')} onClick={handleVolume}></div>
                         <div ref={thumbRef} className={cx('volume-thumb')}></div>
-                    </div>
+                    </div>}
                     <div className={cx('icon')} onClick={handleMute} >{volume ? <UnMutedIcon /> : <MutedIcon />}</div>
                 </div>
                 <div className={cx('play-btn')} onClick={handlePlay}>

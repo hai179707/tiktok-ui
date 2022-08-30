@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -14,25 +14,27 @@ import { InboxIcon, MessagesIcon, MoreIcon, UploadIcon } from '~/components/Icon
 import Image from '~/components/Image';
 import Search from '../Search';
 import config from '~/config';
+import Logo from './Logo';
+import Modal from '~/components/Modal';
+import { useModal } from '~/hooks';
+import LoginModal from '~/components/Modal/LoginModal';
 
 const cx = classNames.bind(styles)
 
 function Header() {
     const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('currentUser')) || false)
+    const { isShowing, toggle } = useModal();
 
     useEffect(() => {
         localStorage.setItem('currentUser', currentUser)
     }, [currentUser])
-
-    const handleLogIn = () => {
-        setCurrentUser(true)
-    }
 
     const handleMenuChange = (menuItem) => {
         if (menuItem.type === 'log-out') {
             var login = localStorage.getItem('currentUser')
             if (login) {
                 setCurrentUser(false)
+                window.location.reload();
             }
         }
         console.log(menuItem)
@@ -40,12 +42,10 @@ function Header() {
 
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
-            <Link to={config.routes.home} className={cx('logo')}>
-                <img src={images.logo} alt='Tiktok' />
-            </Link>
+            <Logo />
             <Search />
             <div className={cx('actions')}>
-                <Button outline to={config.routes.upload} className={cx('upload')} leftIcon={<UploadIcon />}>Upload</Button>
+                <Button outline to={currentUser ? config.routes.upload : ''} onClick={currentUser ? null : toggle} className={cx('upload')} leftIcon={<UploadIcon />}>Upload</Button>
                 {currentUser ? (
                     <>
                         <div>
@@ -74,7 +74,7 @@ function Header() {
                     </>
                 ) : (
                     <>
-                        <Button primary onClick={handleLogIn}>Log in</Button>
+                        <Button primary onClick={toggle}>Log in</Button>
                         <div>
                             <More
                                 items={MENU_ITEMS}
@@ -85,6 +85,12 @@ function Header() {
                         </div>
                     </>
                 )}
+                <Modal
+                    isShowing={isShowing}
+                    hide={toggle}
+                >
+                    <LoginModal />
+                </Modal>
             </div>
 
         </div>

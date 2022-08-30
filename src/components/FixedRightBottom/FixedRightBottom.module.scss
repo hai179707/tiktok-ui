@@ -25,6 +25,8 @@
     box-shadow: rgb(0 0 0 / 6%) 0px 2px 8px;
     transition: transform 0.3s cubic-bezier(0.4, 0.14, 0.3, 1) 0s;
     transform-origin: right bottom;
+    padding: 5px 8px;
+    font-size: 1.4rem;
 
     &.hide-btn {
         transform: scale(0);
@@ -59,11 +61,7 @@
 
     .title {
         margin-left: 8px;
-        line-height: 3.2rem;
-    }
-
-    & > span {
-        height: 3.2rem;
+        line-height: 2.2rem;
     }
 
     &:hover {

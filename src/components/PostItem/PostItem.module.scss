@@ -45,6 +45,10 @@
         line-height: 2.5rem;
         margin-right: 4px;
 
+        &:hover {
+            text-decoration: underline;
+        }
+
         .icon {
             margin-left: 6px;
             color: var(--checked-icon-color);
