@@ -12,6 +12,7 @@ import Video from "../Video";
 import styles from './PostItem.module.scss';
 import VideoTag from "./VideoTag";
 import Actions from "../Actions";
+import TippyAccountReview from '../TippyAccountReview';
 
 const cx = classNames.bind(styles);
 
@@ -27,18 +28,22 @@ function PostItem({ data }) {
 
     return (
         <div className={cx('wrapper')}>
-            <Link to={`/@${data.user.nickname}`} className={cx('avatar')}>
-                <Image src={data.user.avatar} alt={data.user.nickname} />
-            </Link>
+            <TippyAccountReview data={data.user}>
+                <Link to={`/@${data.user.nickname}`} className={cx('avatar')}>
+                    <Image src={data.user.avatar} alt={data.user.nickname} />
+                </Link>
+            </TippyAccountReview>
             <div className={cx('post-content')}>
                 <div className={cx('post-text')}>
-                    <Link to={`/@${data.user.nickname}`} className={cx('user')}>
-                        <h3 className={cx('nickname')}>
-                            <span>{data.user.nickname}</span>
-                            {data.user.tick && <FontAwesomeIcon className={cx('icon')} icon={faCheckCircle} />}
-                        </h3>
-                        <h4 className={cx('username')}>{`${data.user.first_name} ${data.user.last_name}`}</h4>
-                    </Link>
+                    <TippyAccountReview data={data.user} dalay={[800, 0]} offset={[-68, 28]}>
+                        <Link to={`/@${data.user.nickname}`} className={cx('user')}>
+                            <h3 className={cx('nickname')}>
+                                <span>{data.user.nickname}</span>
+                                {data.user.tick && <FontAwesomeIcon className={cx('icon')} icon={faCheckCircle} />}
+                            </h3>
+                            <h4 className={cx('username')}>{`${data.user.first_name} ${data.user.last_name}`}</h4>
+                        </Link>
+                    </TippyAccountReview>
                     <Button outline small className={cx('follow-btn')}>Follow</Button>
                     <div className={cx('video-desc')}>
                         {description}

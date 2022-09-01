@@ -8,11 +8,15 @@ import SuggestedAccounts from '~/components/SuggestedAccounts';
 import SidebarItem from './SidebarItem';
 import Discover from '~/components/Discover';
 import Footer from '~/components/Footer';
+import Login from './Login';
 
 
 const cx = classNames.bind(styles)
 
 function Sidebar() {
+    // Tạm thời thôi
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || false
+
     return (
         <aside className={cx('wrapper')}>
             <div className={cx('container')}>
@@ -21,12 +25,19 @@ function Sidebar() {
                     <MenuItem title='Following' to={config.routes.following} icon={<UserGroupIcon />} activeIcon={<UserGroupSolidIcon />} />
                     <MenuItem title='LIVE' to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveSolidIcon />} />
                 </Menu>
+                {!currentUser &&
+                    <SidebarItem hide>
+                        <Login />
+                    </SidebarItem>
+                }
                 <SidebarItem label='Suggested accounts'>
                     <SuggestedAccounts />
                 </SidebarItem>
-                <SidebarItem hide label='Following accounts'>
-                    <SuggestedAccounts />
-                </SidebarItem>
+                {currentUser &&
+                    <SidebarItem hide label='Following accounts'>
+                        <SuggestedAccounts />
+                    </SidebarItem>
+                }
                 <SidebarItem hide label="Discover">
                     <Discover />
                 </SidebarItem>

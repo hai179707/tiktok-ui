@@ -124,3 +124,9 @@ body {
         top: -8px;
     }
 }
+
+@media (max-width: 576px) {
+    #root {
+        display: none;
+    }
+}

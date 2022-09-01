@@ -12,6 +12,7 @@
         bottom: -12px;
         transform: scaleX(1.5) rotate(180deg);
         z-index: 10000;
+        pointer-events: none;
     }
 }
 

@@ -3,7 +3,8 @@
     align-items: flex-start;
     padding: 20px 0px;
     position: relative;
-    max-width: 692px;
+    width: 692px;
+    max-width: 90vw;
 
     &::after {
         content: '';
@@ -44,6 +45,10 @@
         font-size: 1.8rem;
         line-height: 2.5rem;
         margin-right: 4px;
+
+        &:hover {
+            text-decoration: underline;
+        }
 
         .icon {
             margin-left: 6px;
